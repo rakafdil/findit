@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@import './components/navbar.css';
+@import './components/card.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Poppins", sans-serif;
+
+    --color-china: rgba(112, 150, 209, 1);
+    --color-dawn: rgba(208, 227, 255, 1);
+    --color-asian-pear: rgba(208, 227, 255, 1);
+    --color-porcelain: #EDF1F6;
+}
+
+.logo {
+    filter: drop-shadow(2.533px 3.533px 2px rgba(0, 0, 0, 0.3));
+}

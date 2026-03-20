@@ -1,0 +1,14 @@
+.card-home {
+  position: relative;
+  overflow: hidden; 
+  border-radius: 10px; 
+}
+
+.card-home::before {
+  content: "";
+  position: absolute;
+  inset: -10px; /* Expands the pseudo-element to create the 'border' area */
+  background: royalblue; /* Color of the blurred border */
+  filter: blur(10px); /* Applies the blur effect */
+  z-index: -1; /* Puts the blurred element behind the content */
+}

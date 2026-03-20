@@ -1,0 +1,18 @@
+.btn-glow {
+    @apply bg-asian-pear px-6 py-2 rounded-2xl border-2 border-[#334EAC] ;
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+.btn-glow:hover {
+    @apply text-white transition-all duration-300;
+    transform: translateY(-2px);
+    box-shadow:
+        0 2px 4px 0 #081f5c,
+        0 0 33.2px 60px var(--dawn, #d0e3ff) inset;
+}
+
+.nav-link:hover{
+    @apply bg-dawn/50 px-4 py-2 rounded-full text-white transition-all duration-300;
+}
