@@ -11,19 +11,19 @@
 
     <title>{{ $title }}</title>
 
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="relative bg-porcelain font-sans">
+<body class="relative min-h-screen flex flex-col bg-porcelain font-sans max-w-455">
     <header class="sticky top-0 z-50 w-full">
         <x-navbar.navbar />
     </header>
 
-    <main class="flex min-h-screen {{ $class }}">
+    <main class="flex-1 {{ $class }}">
         {{ $slot }}
     </main>
 </body>

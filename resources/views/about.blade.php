@@ -30,7 +30,7 @@ backdrop-filter: blur(7.5px);">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-20">
                 @foreach ($items as $item)
-                    <x-home.card :num="$item['num']" :text="$item['text']" />
+                    <x-about.card :num="$item['num']" :text="$item['text']" />
                 @endforeach
             </div>
         </div>
