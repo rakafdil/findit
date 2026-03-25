@@ -1,4 +1,4 @@
-<x-layout.layout class="relative items-start">
+<x-layout.layout class="relative items-start pb-30">
     <div class="absolute inset-0 -z-10 bg-linear-to-b from-porcelain to-[#1d3167]/60"></div>
     <div class="mx-20 mt-12 flex justify-center flex-col items-center gap-7">
         <h1 class="font-bold text-5xl">What is FindIt?</h1>

@@ -17,8 +17,13 @@
     --color-porcelain: #EDF1F6;
     --color-royal: rgba(51, 78, 172, 1);
     --color-jicama: #FFF9F0;
+    --color-midnight: rgba(8,31,92,1);
 }
 
 .logo {
     filter: drop-shadow(2.533px 3.533px 2px rgba(0, 0, 0, 0.3));
+}
+
+footer a{
+    cursor: pointer;
 }

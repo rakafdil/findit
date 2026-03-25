@@ -4,7 +4,8 @@
     'desc' => 'Cari Barang Temuan memungkinkan pencarian barang yang telah dilaporkan ditemukan di daerah sekitar kampus. Barang yang cocok dengan deskripsi dapat langsung diklaim kepemilikannya melalui prosedur yang tersedia.',
     'gradientLoc' => '-right-40 -top-31.5',
     'imageURL' => 'zoom-dynamic-gradient',
-    'imagePos' => '-top-15 -translate-x-1/2 left-1/2'
+    'imagePos' => '-top-15 -translate-x-1/2 left-1/2',
+    'scale' => 'scale-100'
 ])
 <div
     class="relative overflow-clip flex mt-11 mb-8 pt-28 pb-20 rounded-3xl border-3 border-royal bg-jicama justify-center min-h-[560px] lg:min-h-[500px] swipper-wrapper">
@@ -24,7 +25,7 @@
     </div>
     <div class="relative w-[45%] -mr-18">
         <img src="{{ asset('assets/home/'.$imageURL.'.png') }}"
-            class="absolute z-10 w-[80%] {{ $imagePos }}">
+            class="absolute z-10 w-[80%] {{ $imagePos }} {{ $scale }}">
     </div>
     {{ $slot }}
 </div>

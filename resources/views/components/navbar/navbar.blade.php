@@ -7,6 +7,11 @@
         <x-navbar.nav-link :href="route('about')" :active="request()->routeIs('about')" class="nav-link">
             About
         </x-navbar.nav-link>
+        @auth
+        <a href="{{ route('auth') }}" class="btn-glow navbar-link">
+            Profile
+        </a>
+        @endauth
         <a href="{{ route('auth') }}" class="btn-glow navbar-link">
             Login
         </a>

@@ -1,5 +1,5 @@
 
-<x-layout.layout class="relative items-center">
+<x-layout.layout class="relative items-center pb-30">
     <div class="flex items-stretch gap-2">
         <button id="prev-page-btn" type="button" class="px-10">
             <svg class="cursor-pointer hover:scale-110 duration-300 transition-all" width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
                     </x-home.content>
                 </div>
                  <div class="swiper-slide" >
-                    <x-home.content>
+                    <x-home.content header1="LAPOR" header2="BARANG TEMUAN" desc="Lapor Barang Temuan memfasilitasi pelaporan barang yang ditemukan di kampus. Barang yang dilaporkan akan diinformasikan, sehingga pemiliknya dapat mengetahui keberadaannya dan mengklaimnya kembali." imageURL="doc" imagePos="-top-30 -translate-x-1/2 left-1/2" gradientLoc="-left-100 -top-31.5" scale="scale-80">
                         <img src="{{ asset('assets/shapes/shape-home1.svg') }}" class="absolute z-1 w-[35%] right-0 bottom-0">
                         <img src="{{ asset('assets/home/lines-bg.svg') }}" class="absolute z-1 w-[35%] left-8 top-0">
                         <img src="{{ asset('assets/home/headphone-dynamic-gradient-bg.png') }}" class="absolute z-1 left-20 top-0">
