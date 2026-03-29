@@ -9,7 +9,7 @@
         <a class="text-base underline hover:no-underline self-end" href="/forgot-pass">Forgot Password?</a>
     </div>
     <div class="flex flex-col w-full gap-6">
-        <button class="text-white bg-china rounded-full py-2">Login as User</button>
+        <button type="button" class="text-white bg-china rounded-full py-2" onclick="window.location.href='{{ route('login-test') }}'">Login as User</button>
         <span class="flex justify-center items-center gap-5 text-xl">
             <div class="bg-midnight h-[0.1px] w-full"></div> or <div class="bg-midnight h-[0.1px] w-full"></div>
         </span>

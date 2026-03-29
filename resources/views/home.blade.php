@@ -1,5 +1,5 @@
 
-<x-layout.layout class="relative items-center pb-30">
+<x-layout.layout class="relative items-center pb-30 bg-porcelain">
     <div class="flex items-stretch gap-2">
         <button id="prev-page-btn" type="button" class="px-10">
             <svg class="cursor-pointer hover:scale-110 duration-300 transition-all" width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">

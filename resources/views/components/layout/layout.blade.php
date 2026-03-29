@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="relative min-h-screen bg-porcelain font-sans">
+<body class="relative min-h-screen font-sans">
     <div class="mx-auto flex min-h-screen w-full max-w-455 flex-col">
         <header class="sticky top-0 z-50 w-full">
             <x-navbar.navbar />
@@ -29,7 +29,7 @@
             {{ $slot }}
         </main>
 
-        <footer class="bg-china flex flex-col px-10 py-10">
+        <footer class="bg-china flex flex-col px-10 py-10 z-0">
             <div class="flex gap-120">
                 <img src="{{ asset('assets/logo.png') }}" class="logo w-120" alt="FindIt logo">
 
