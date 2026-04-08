@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LaporTemu;
+use App\Http\Middleware\AuthMiddleware;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +41,16 @@ Route::get('/logout-test', function () {
     return view('home');
 })->name('logout-test');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::group(['middleware' => AuthMiddleware::class], function () {
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/lapor-temu', [LaporTemu::class, 'show'])->name('lapor-temu.show');
+    Route::post('/lapor-temu', [LaporTemu::class, 'submit'])->name('lapor-temu.submit');
+
+    Route::get('/lapor-hilang', function() {
+        return view('lapor-hilang');
+    });
+});
