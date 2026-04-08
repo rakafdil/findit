@@ -3,7 +3,7 @@
     'detail' => 'Lihat daftar barang yang telah dilaporkan ditemukan di kampus. Gunakan filter untuk mempermudah
             pencarian berdasarkan deskripsi, kategori, atau lokasi. Jika ingin mengajukan klaim atas barang
             tersebut, gunakan Klaim Kepemilikan.',
-    'button' => ['name'=>'Mulai Cari', 'linkTo' => '/cari'],
+    'button' => ['name'=>'Mulai Cari', 'linkTo' => '/cari-barang'],
     'imgName' => 'zoom-dynamic-gradient.png'
 ])
 

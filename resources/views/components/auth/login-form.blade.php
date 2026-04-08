@@ -1,4 +1,4 @@
-<x-layout.form >
+<x-layout.form back="home">
     <div class="flex flex-col justify-center items-center self-center">
         <img src="{{ asset('assets/logo-var2.png') }}" class="w-40 logo"></img>
         <p class="text-base">Login now to access all FindIt features!</p>

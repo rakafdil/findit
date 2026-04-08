@@ -31,27 +31,32 @@
             </button>
         </div>
     @elseif ($type === 'file')
-        <div class="flex items-center gap-3 w-full">
-            <input id="{{ $id }}" name="{{ $resolvedName }}"
-                class="border-3 border-china w-full rounded-md px-2 py-1 focus:border-royal focus:ring-2 focus:ring-royal/30 focus:outline-none transition-colors {{ $class }} file:mr-4 file:rounded-full file:border-0 file:bg-royal file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-midnight"
-                type="file" @if ($accept) accept="{{ $accept }}" @endif>
-            <button type="button"
-                class="shrink-0 rounded-full border-2 bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-500"
-                onclick="(
-                function(btn){
-                    const input=btn.parentElement.querySelector('input[type=file]');
-                    if(input){
-                        input.value='';
+        <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-3 w-full">
+                <input required id="{{ $id }}" name="{{ $resolvedName }}"
+                    class="border-3 border-china w-full rounded-md px-2 py-1 focus:border-royal focus:ring-2 focus:ring-royal/30 focus:outline-none transition-colors {{ $class }} file:mr-4 file:rounded-full file:border-0 file:bg-royal file:px-4 file:py-2 file:font-bold file:text-white hover:file:bg-midnight"
+                    type="file" onchange="previewImage(event)" @if ($accept) accept="{{ $accept }}" @endif>
+                <button type="button"
+                    class="shrink-0 rounded-full border-2 bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-500"
+                    onclick="(
+                    function(btn){
+                        const input=btn.parentElement.querySelector('input[type=file]');
+                        if(input){
+                            input.value='';
+                        }
+                        const preview = document.getElementById('preview');
+                        preview.src = '';
                     }
-                }
-                )(this)">Remove</button>
+                    )(this)">Remove</button>
+            </div>
+            <p>*format file .jpg,.jpeg,.png,.webp</p>
         </div>
     @elseif ($type === 'textarea')
         <textarea id="{{ $id }}" name="{{ $resolvedName }}"
             class="placeholder:font-medium border-3 border-china w-full rounded-md px-2 py-1 focus:border-royal focus:ring-2 focus:ring-royal/30 focus:outline-none transition-colors {{ $class }}"
             placeholder="{{ $resolvedPlaceholder }}">{{ old($resolvedName) }}</textarea>
     @else
-        <input id="{{ $id }}" name="{{ $resolvedName }}"
+        <input required id="{{ $id }}" name="{{ $resolvedName }}"
             class="placeholder:font-medium border-3 border-china w-full rounded-md px-2 py-1 focus:border-royal focus:ring-2 focus:ring-royal/30 focus:outline-none transition-colors {{ $class }}"
             type="{{ $type }}" placeholder="{{ $resolvedPlaceholder }}" value="{{ old($resolvedName) }}">
     @endif
