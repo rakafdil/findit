@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\LaporTemuService;
+use App\Services\LaporanBarangService;
 use Illuminate\Http\Request;
 
 class CariBarangController extends Controller
 {
-    public function __construct(private LaporTemuService $service) {}
+    public function __construct(private LaporanBarangService $service) {}
 
     public function show()
     {

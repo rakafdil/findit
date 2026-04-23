@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\LaporTemuService;
+use App\Services\LaporanBarangService;
 
 class LaporTemuController extends Controller
 {
-    public function __construct(private LaporTemuService $service) {}
+    public function __construct(private LaporanBarangService $service) {}
 
     public function show()
     {
@@ -29,11 +29,10 @@ class LaporTemuController extends Controller
             'bukti-pendukung' => ['required', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
-         $this->service->create(
+        $this->service->create(
             $validated,
             $request->file('bukti-pendukung')
         );
-
         return redirect()->route('lapor-temu.show')->with('success', 'Laporan berhasil disimpan.');
     }
 }

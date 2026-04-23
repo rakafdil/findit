@@ -15,6 +15,7 @@
             OKE
         </button>
     </div>
+@elseif(session($type))
 @endif
 
 <script>
