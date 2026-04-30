@@ -5,7 +5,7 @@
             Home
         </x-navbar.nav-link>
         @auth
-            <x-navbar.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link">
+            <x-navbar.nav-link :href="route('dashboard.index')" :active="request()->is(['dashboard','dashboard/*'])" class="nav-link">
                 Dashboard
             </x-navbar.nav-link>
         @endauth
@@ -30,7 +30,7 @@
                 </button>
                 <div
                     class="absolute right-0 mt-2 hidden w-44 rounded-xl border border-china/20 bg-midnight text-asian-pear p-2 shadow-lg group-hover:block group-focus-within:block">
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('dashboard.index') }}"
                         class="block rounded-lg px-3 py-2 text-sm hover:bg-dawn/30">Profile</a>
                     <a href="{{ route('about') }}" class="block rounded-lg px-3 py-2 text-sm hover:bg-dawn/30">Help</a>
                     <a href="{{ route('logout-test') }}" class="block rounded-lg px-3 py-2 text-sm hover:bg-dawn/30">Logout</a>

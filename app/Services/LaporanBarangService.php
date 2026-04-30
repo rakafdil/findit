@@ -20,6 +20,14 @@ class LaporanBarangService
         return LaporanBarang::query()->find($id);
     }
 
+    public function findByName($name)
+    {
+        return LaporanBarang::query()
+            ->where('nama_barang', 'like', "%{$name}%")
+            ->where('jenis_laporan', 'Kehilangan')
+            ->get();
+    }
+
     public function create(array $validated, $file)
     {
         $imagePath = $file?->store('data/bukti-pendukung', 'public');

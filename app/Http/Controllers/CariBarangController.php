@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class CariBarangController extends Controller
 {
-    public function __construct(private LaporanBarangService $service) {}
+    public function __construct(private LaporanBarangService $service)
+    {
+    }
 
     public function show()
     {
@@ -15,8 +17,16 @@ class CariBarangController extends Controller
         return view('cari-barang', compact('data'));
     }
 
-    public function find($id)
+    public function find(Request $request)
     {
-        $this->service->find($id);
+        $q = $request->query('q');
+
+        $result = $this->service->findByName($q);
+
+        return response()->json([
+            'status' => 'success',
+            'query' => $q,
+            'data' => $result
+        ]);
     }
 }

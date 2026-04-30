@@ -33,6 +33,6 @@ class LaporTemuController extends Controller
             $validated,
             $request->file('bukti-pendukung')
         );
-        return redirect()->route('lapor-temu.show')->with('success', 'Laporan berhasil disimpan.');
+        return redirect()->route('dashboard.lapor-temu.index')->with('success', 'Laporan berhasil disimpan.');
     }
 }

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/','home')->name('home');
+Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
 
 Route::get('/auth', function () {
@@ -35,22 +35,28 @@ Route::get('/login-test', function () {
 
 Route::get('/logout-test', function () {
     Auth::logout();
-    
+
     return redirect('/');
 })->name('logout-test');
 
-Route::middleware(['auth'])->group( function () {
+Route::prefix('dashboard')
+    ->name('dashboard.')
+    ->middleware(['auth'])
+    ->group(
+        function () {
+            Route::get('/', fn() => view('dashboard'))->name('index');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+            Route::name('lapor-temu.')->group(function () {
+                Route::get('/lapor-temu', [LaporTemuController::class, 'show'])->name('index');
+                Route::post('/lapor-temu', [LaporTemuController::class, 'create'])->name('submit');
+            });
 
-    Route::get('/lapor-temu', [LaporTemuController::class, 'show'])->name('lapor-temu.show');
-    Route::post('/lapor-temu', [LaporTemuController::class, 'create'])->name('lapor-temu.submit');
-    
-    Route::get('/lapor-hilang', function() {
-        return view('lapor-hilang');
-    });
+            Route::get('/lapor-hilang', fn() => view('lapor-hilang'))->name('lapor-hilang.index');
 
-    Route::get('/cari-barang', [CariBarangController::class, 'show'])->name('cari-barang.show');
-});
+            Route::get('/cari-barang', [CariBarangController::class, 'show'])
+                ->name('cari-barang.index');
+
+            Route::get('/cari-barang/search', [CariBarangController::class, 'find'])
+                ->name('cari-barang.search');
+        }
+    );
