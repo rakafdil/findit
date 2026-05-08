@@ -41,8 +41,18 @@ RUN composer install --optimize-autoloader --no-dev
 RUN npm install
 RUN npm run build
 
-# 7. Berikan permission ke folder storage dan cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# 7. Pastikan struktur folder storage ada, lalu berikan permission
+RUN mkdir -p /var/www/html/storage/framework/sessions \
+    /var/www/html/storage/framework/views \
+    /var/www/html/storage/framework/cache \
+    /var/www/html/storage/logs \
+    /var/www/html/bootstrap/cache
 
-# Back4App mengekspos port 80 untuk image berbasis Apache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Back4App mengekspos port 80
 EXPOSE 80
+
+# 8. Jalankan migrasi saat container START, lalu jalankan Apache
+CMD ["sh", "-c", "php artisan migrate --force && apache2-foreground"]
